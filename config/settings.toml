@@ -1,0 +1,59 @@
+# 系统运行参数配置文件
+# 说明：所有系统级运行参数均在此定义，可在应用“设置”页中修改并回写。
+
+[app]
+# 日志级别：debug / info / warning / error
+logLevel = "info"
+theme = "light"
+
+[crawl]
+# chromedriver 可执行文件路径（相对项目根或绝对路径） ，这里的是默认的
+driverPath = "chromedriver/chromedriver.exe"
+# 抓取评论条数低于该阈值时触发“维度重构”
+commentThreshold = 20
+# 每次滚动抓取的批大小
+commentBatchSize = 50
+# 单次分析最多抓取的评论条数
+commentMaxCount = 600
+# 连续滚动无新评论的重试上限
+maxScrollRetry = 5
+# 每次滚动后等待页面加载的秒数
+scrollWaitSeconds = 2.0
+# 页面跳转后的基础等待秒数
+redirectWaitSeconds = 3
+# 等待用户手动登录的最长秒数
+loginTimeoutSeconds = 180
+# 登录状态轮询间隔秒数
+loginCheckInterval = 0.5
+
+[analysis]
+# 置信度低于该阈值的评论将被排除（0-1）
+credibilityThreshold = 0.5
+# 按加权总得分截尾：去掉最高与最低两端各 x%（0-50）
+trimPercent = 5.0
+# 有效评论条数低于该阈值时触发“修正因子”介入
+validCommentThreshold = 10
+
+[llm]
+# DeepSeek API Key（仅存本地）
+apiKey = "***"
+# DeepSeek API 基础地址
+baseUrl = "https://api.deepseek.com"
+# 使用的模型名称
+model = "deepseek-flash"
+# LLM 并发请求数上限
+maxConcurrency = 4
+# 每个打分请求包含的评论条数
+batchSize = 50
+# 单次请求超时秒数
+requestTimeoutSeconds = 120
+# 失败请求的最大重试次数
+maxRetries = 3
+
+[browser]
+# 指纹：时区
+timezone = "Asia/Shanghai"
+# 指纹：语言
+language = "zh-CN"
+# 指纹：区域设置
+locale = "zh_CN"

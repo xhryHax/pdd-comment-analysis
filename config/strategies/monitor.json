@@ -1,0 +1,39 @@
+{
+  "strategyId": "monitor",
+  "name": "显示器",
+  "source": "default",
+  "dimensions": [
+    {
+      "name": "售后",
+      "description": "指退换货是否顺利，越顺利越好",
+      "weight": 0.3,
+      "emphasized": true
+    },
+    {
+      "name": "画面显示细腻度",
+      "description": "指显示器显示的画面的细腻程度，即越清晰越好",
+      "weight": 0.3,
+      "emphasized": true
+    },
+    {
+      "name": "画面显示色彩还原度",
+      "description": "指显示器显示的画面的色彩还原度，越还原越好",
+      "weight": 0.15,
+      "emphasized": true
+    },
+    {
+      "name": "画面帧率效果",
+      "description": "指显示器的画面是否显示流畅，越流畅越好",
+      "weight": 0.15,
+      "emphasized": true
+    },
+    {
+      "name": "物流速度",
+      "description": "指物流质量，发货越快越好",
+      "weight": 0.1,
+      "emphasized": false
+    }
+  ],
+  "ratingPrompt": "你是一位资深电商商品评测专家，负责逐条分析用户评论并为商品在多个维度上打分。\n评分规则：\n1. 针对每条评论，仅根据评论实际表达的内容对每个维度给出 0-100 的整数分数；\n2. 0 分表示该维度表现极差，100 分表示表现极佳，50 分为中性/无明显倾向；\n3. 评论未提及或无法判断的维度，必须输出 Null，不要凭空猜测或补默认值；\n4. 评论中负面信息越具体，对应维度分数应越低。",
+  "credibilityPrompt": "对每条评论额外给出整体可信度 confidence（0-1 的小数）。\n评判标准：\n1. 表述明确、包含具体细节（如使用时长、材质、尺寸、价格）的可信度偏高；\n2. 内容模糊、过短、疑似广告刷单、恶意灌水或前后矛盾的评论可信度低；\n3. 无法判断时取 0.5 附近。"
+}
